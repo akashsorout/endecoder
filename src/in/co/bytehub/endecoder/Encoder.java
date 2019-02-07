@@ -3,6 +3,7 @@ package in.co.bytehub.endecoder;
 import java.io.Console;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 import sun.misc.BASE64Encoder;
 
@@ -11,8 +12,19 @@ public class Encoder {
     public static void main(String[] args) {
         System.out.println("Enter String to be enocode : ");
         Console console = System.console();
+        String text="";
+        if(null !=console) {
         char[] readPassword = console.readPassword();
-        encode(new String(readPassword));
+        text= new String(readPassword);
+        }
+        else        	
+        {
+        	Scanner sc = new Scanner(System.in);
+        	text= sc.next();
+        	sc.close();
+        }
+         
+		encode(text);
     }
 
     public static void encode(String text) {
